@@ -64,6 +64,7 @@ QToolTip {
 .language-widget .widget-container,
 .taskbar-widget .widget-container,
 .wifi-widget .widget-container,
+.cava-widget .widget-container,
 .recycle-bin-widget,
 .komorebi-workspaces .widget-container {
     background-color: var(--transparent);
@@ -578,8 +579,9 @@ QToolTip {
 
 /* CAVA Settings*/
 .cava-widget {
-    padding: 0;
-    margin: 0;
+    padding-left:2;
+    padding-right: 2;
+    margin-left: 2;
 }
 .cava-widget .widget-container {}
 

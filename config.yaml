@@ -8,7 +8,7 @@ komorebi:
 bars:
   primary-bar:
     enabled: true
-    screens: ["*"]
+    screens: ["LS27AG55x"]
     class_name: "yasb-bar"
     alignment:
       position: "top"
@@ -17,8 +17,8 @@ bars:
       enabled: true
       duration: 1000
     blur_effect:
-      enabled: false 
-      acrylic: true 
+      enabled: false
+      acrylic: true
       dark_mode: true
       round_corners: false
       border_color: None
@@ -33,53 +33,44 @@ bars:
       bottom: 0
       right: 0
     widgets:
-      left: [
-        "home",
-        "komorebi_workspaces",
-        "disk",
-        "apps",
-        "whkd",
-        "media",
-        "cava",
-      ]
-      center: [
-        "clock",
-        "weather",
-      ]
-      right: [
-        "active_window",
-        "taskbar",
-        "cpu",
-        "memory",
-        "volume",
-        "language",
-        "wifi",
-        "notifications",
-        "bin",
-        "power_menu"
+      left:
+        ["home", "komorebi_workspaces", "disk", "apps", "whkd", "media", "cava"]
+      center: ["clock", "weather"]
+      right:
+        [
+          "active_window",
+          "taskbar",
+          "cpu",
+          "memory",
+          "volume",
+          "language",
+          "wifi",
+          "notifications",
+          "bin",
+          "power_menu",
         ]
 widgets:
   wifi:
-      type: "yasb.wifi.WifiWidget"
-      options:
-        label: "<span>{wifi_icon}</span>"
-        label_alt: "{wifi_name} {wifi_strength}%"
-        update_interval: 5000
-        callbacks:
-          on_left: "exec cmd.exe /c start ms-settings:network"
-          on_middle: "do_nothing"
-          on_right: "toggle_label"
-        container_padding:
-          top: 0
-          left: 8
-          bottom: 0
-          right: 8
-        wifi_icons: [
-          "\udb82\udd2e",  # Icon for 0% strength
-          "\udb82\udd1f",  # Icon for 1-20% strength
-          "\udb82\udd22",  # Icon for 21-40% strength
-          "\udb82\udd25",  # Icon for 41-80% strength
-          "\udb82\udd28"   # Icon for 81-100% strength
+    type: "yasb.wifi.WifiWidget"
+    options:
+      label: "<span>{wifi_icon}</span>"
+      label_alt: "{wifi_name} {wifi_strength}%"
+      update_interval: 5000
+      callbacks:
+        on_left: "exec cmd.exe /c start ms-settings:network"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+      container_padding:
+        top: 0
+        left: 8
+        bottom: 0
+        right: 8
+      wifi_icons: [
+          "\udb82\udd2e", # Icon for 0% strength
+          "\udb82\udd1f", # Icon for 1-20% strength
+          "\udb82\udd22", # Icon for 21-40% strength
+          "\udb82\udd25", # Icon for 41-80% strength
+          "\udb82\udd28", # Icon for 81-100% strength
         ]
   systray:
     type: "yasb.systray.SystrayWidget"
@@ -92,7 +83,7 @@ widgets:
       pin_click_modifier: "alt" # Can be "ctrl", "alt" or "shift"
       show_unpinned: false
       # show_unpinned_button: true
-      # show_network: true 
+      # show_network: true
   language:
     type: "yasb.language.LanguageWidget"
     options:
@@ -130,43 +121,23 @@ widgets:
   disk:
     type: "yasb.disk.DiskWidget"
     options:
-        label: "<span>\uf473</span>"
-        label_alt: "<span>\uf473</span>"
-        update_interval: 60
-        group_label:
-          volume_labels: ["C", "D", "E", "F"]
-          show_label_name: false
-          blur: True
-          round_corners: True
-          round_corners_type: "small"
-          border_color: "System"
-          alignment: "left"
-          direction: "down"
-          distance: 6
-        callbacks:
-          on_left: "toggle_group"
-          on_middle: "toggle_label"
-          on_right: "exec explorer C:\\" # Open disk C in file explorer
-  cava:
-    type: "yasb.cava.CavaWidget"
-    options:
-      bar_height: 12
-      min_bar_height: 0
-      gradient: 1
-      reverse: 0
-      foreground: "#89b4fa"
-      gradient_color_1: '#74c7ec'
-      gradient_color_2: '#89b4fa'
-      gradient_color_3: '#cba6f7'
-      bars_number: 8
-      bar_spacing: 2
-      bar_width: 4
-      hide_empty: true
-      container_padding:
-        top: 0
-        left: 8
-        bottom: 0
-        right: 8
+      label: "<span>\uf473</span>"
+      label_alt: "<span>\uf473</span>"
+      update_interval: 60
+      group_label:
+        volume_labels: ["C", "D", "E", "F"]
+        show_label_name: false
+        blur: True
+        round_corners: True
+        round_corners_type: "small"
+        border_color: "System"
+        alignment: "left"
+        direction: "down"
+        distance: 6
+      callbacks:
+        on_left: "toggle_group"
+        on_middle: "toggle_label"
+        on_right: "exec explorer C:\\" # Open disk C in file explorer
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
     options:
@@ -177,7 +148,7 @@ widgets:
       label_icon_size: 14
       max_length: 32
       max_length_ellipsis: "..."
-      monitor_exclusive: false 
+      monitor_exclusive: false
   cpu:
     type: "yasb.cpu.CpuWidget"
     options:
@@ -238,10 +209,10 @@ widgets:
     options:
       label: "<span>\udb81\udf17</span>"
       menu_list:
-      - { title: "GraSo", path: "~" }
-      - { title: "Download", path: "~\\Downloads" }
-      - { title: "Documents", path: "~\\Documents" }
-      - { title: "Pictures", path: "~\\Pictures" }
+        - { title: "GraSo", path: "~" }
+        - { title: "Download", path: "~\\Downloads" }
+        - { title: "Documents", path: "~\\Documents" }
+        - { title: "Pictures", path: "~\\Pictures" }
       system_menu: true
       power_menu: true
       blur: true
@@ -284,7 +255,7 @@ widgets:
       label_alt: "{%A, %d %B %Y %H:%M:%S}"
       callbacks:
         on_left: "toggle_calendar"
-      calendar: 
+      calendar:
         blur: True
         round_corners: True
         round_corners_type: "small"
@@ -342,7 +313,7 @@ widgets:
         left: 8
         bottom: 0
         right: 8
-      weather_card: 
+      weather_card:
         blur: true
         round_corners: true
         round_corners_type: "small"
@@ -351,6 +322,7 @@ widgets:
         direction: "down"
         distance: 6
         icon_size: 64
+
   volume:
     type: "yasb.volume.VolumeWidget"
     options:
@@ -412,10 +384,16 @@ widgets:
       app_list:
         - { icon: "\uf422", launch: "search" }
         - { icon: "\ueb03", launch: "cmd /c Taskmgr" }
-        - { icon: "\uf268",launch: "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe" }
+        - {
+            icon: "\uf268",
+            launch: "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+          }
         - { icon: "\uf489", launch: "wt" }
-        - { icon: "\uf1ff",launch: "C:\\Users\\santi\\AppData\\Local\\Discord\\Update.exe --processStart Discord.exe" }
-        - { icon: "\udb82\ude1e",launch: "F:\\Microsoft VS Code\\Code.exe" }
+        - {
+            icon: "\uf1ff",
+            launch: "C:\\Users\\santi\\AppData\\Local\\Discord\\Update.exe --processStart Discord.exe",
+          }
+        - { icon: "\udb82\ude1e", launch: "F:\\Microsoft VS Code\\Code.exe" }
   bin:
     type: "yasb.recycle_bin.RecycleBinWidget"
     options:
@@ -437,8 +415,7 @@ widgets:
         enabled: true
         color: "black"
         radius: 3
-        offset: [ 1, 1 ]
-  
+        offset: [1, 1]
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
     options:
@@ -454,5 +431,23 @@ widgets:
         left: 8
         bottom: 0
         right: 8
-        
-
+  cava:
+    type: "yasb.cava.CavaWidget"
+    options:
+      bar_height: 12
+      min_bar_height: 0
+      gradient: 1
+      reverse: 0
+      foreground: "#89b4fa"
+      gradient_color_1: '#74c7ec'
+      gradient_color_2: '#89b4fa'
+      gradient_color_3: '#cba6f7'
+      bars_number: 8
+      bar_spacing: 2
+      bar_width: 4
+      hide_empty: true
+      container_padding:
+        top: 0
+        left: 8
+        bottom: 0
+        right: 8
